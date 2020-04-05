@@ -25,11 +25,11 @@ const NavStyles = styled.ul`
     &:before {
       content: '';
       width: 2px;
-      background: ${props => props.theme.lightgrey};
+      background: slategray;
       height: 100%;
       left: 0;
       position: absolute;
-      transform: skew(-20deg);
+      transform: skew(-10deg);
       top: 0;
       bottom: 0;
     }
