@@ -1,25 +1,46 @@
 import Link from 'next/link';
+import styled from 'styled-components';
+import NavStyles from './styles/NavStyles';
+
+
+const StyledNav = styled.ul`
+    @font-face {
+        font-family: 'WestGotisch';
+        src: url('/static/WestminsterGotisch.ttf')
+        format('woff');
+    }
+    font-size: 32px;
+
+`;
+
+const NavAnchor = styled.a`
+    font-family: 'WestGotisch';
+    color:white;
+    justify-self: end;
+`;
+
+
 const Nav = () => (
-    <div>
+    <NavStyles>
         <Link href="/">
-            <a>Home</a>
+            <NavAnchor>Home</NavAnchor>
         </Link>
         <Link href="/about">
-            <a>About</a>
+            <NavAnchor>About</NavAnchor>
         </Link>
         <Link href="/customOrder">
-            <a>Custom Order</a>
+            <NavAnchor>Custom Order</NavAnchor>
         </Link>
         <Link href="/necklaces">
-            <a>Necklaces</a>
+            <NavAnchor>Necklaces</NavAnchor>
         </Link>
         <Link href="/rings">
-            <a>Rings</a>
+            <NavAnchor>Rings</NavAnchor>
         </Link>
         <Link href="/cuffs">
-            <a>Cuffs</a>
+            <NavAnchor>Cuffs</NavAnchor>
         </Link>
-    </div>
+    </NavStyles>
 )
 
 export default Nav;
