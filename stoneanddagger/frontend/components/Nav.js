@@ -23,7 +23,7 @@ const NavAnchor = styled.a`
 const Nav = () => (
     <NavStyles>
         <Link href="/">
-            <NavAnchor>Home</NavAnchor>
+            <NavAnchor>Shop</NavAnchor>
         </Link>
         <Link href="/about">
             <NavAnchor>About</NavAnchor>
