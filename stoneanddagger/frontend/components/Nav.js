@@ -22,6 +22,9 @@ const NavAnchor = styled.a`
 
 const Nav = () => (
     <NavStyles>
+        <Link href="/upload">
+            <NavAnchor>Upload</NavAnchor>
+        </Link>
         <Link href="/">
             <NavAnchor>Shop</NavAnchor>
         </Link>
