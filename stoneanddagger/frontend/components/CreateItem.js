@@ -28,7 +28,7 @@ const CREATE_ITEM_MUTATION = gql`
 
 class CreateItem extends Component {
     state = {
-        title: 'Cool Shoes',
+        title: '',
         description: '',
         image: '',
         largeImage: '',
@@ -41,7 +41,7 @@ class CreateItem extends Component {
     }
     render() {
         return (
-            <Mutation mutation={CREATE_ITEM_MUTATION} variables={this.state}>
+            <Mutation mutation={UPDATE_ITEM_MUTATION} variables={this.state}>
             {(createItem, {loading, error}) => (
                 <Form onSubmit={ async e => {
                     // stop form from submitting
@@ -49,7 +49,6 @@ class CreateItem extends Component {
                     // call the mutation
                     const res = await createItem();
                     // change path to single item page
-                    console.log(res);
                     Router.push({
                         pathname: '/item',
                         query:  {id: res.data.createItem.id }
@@ -79,4 +78,4 @@ class CreateItem extends Component {
 }
 
 export default CreateItem;
-export {CREATE_ITEM_MUTATION};
+export { CREATE_ITEM_MUTATION };

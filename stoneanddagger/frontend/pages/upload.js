@@ -1,8 +1,8 @@
-import CreateItem from '../components/CreateItem';
+import UpdateItem from '../components/UpdateItem';
 
 const Upload = props => (
     <div>
-        <CreateItem />
+        <UpdateItem />
     </div>
 );
 
