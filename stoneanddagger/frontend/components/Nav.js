@@ -2,55 +2,53 @@ import Link from 'next/link';
 import styled from 'styled-components';
 import NavStyles from './styles/NavStyles';
 import User from './User';
-
-
-const StyledNav = styled.ul`
-    @font-face {
-        font-family: 'WestGotisch';
-        src: url('/static/WestminsterGotisch.ttf')
-        format('woff');
-    }
-    font-size: 32px;
-
-`;
-
-const NavAnchor = styled.a`
-    font-family: 'WestGotisch';
-    color:white;
-    justify-self: end;
-`;
+import Signout from './Signout';
 
 
 const Nav = () => (
-    <NavStyles>
-        <User>
-            {({ data: { me }}) => {
-                if(me) return <p>{me.name}</p>
-                return null;
-            }}
+    <User>
+        {({ data: { me } }) => (
+            <NavStyles>
+                <Link href="/items">
+                    <a>Shop</a>
+                </Link>
+                <Link href="/about">
+                    <a>About</a>
+                </Link>
+                {me && (
+                    <>
+                        <Link href="/upload">
+                            <a>Upload</a>
+                        </Link>
+                        <Link href="/customOrder">
+                            <a>Custom Order</a>
+                        </Link>
+                        <Link href="/orders">
+                            <a>Orders</a>
+                        </Link>
+                        <Link href="/me">
+                            <a>Account</a>
+                        </Link>
+                        <Signout />
+                    </>
+                )}
+                {!me && (
+                    <Link href="/signup">
+                        <a>Sign In</a>
+                    </Link>
+                )}
+            </NavStyles>
+                )}
         </User>
-        <Link href="/upload">
-            <NavAnchor>Upload</NavAnchor>
-        </Link>
-        <Link href="/">
-            <NavAnchor>Shop</NavAnchor>
-        </Link>
-        <Link href="/about">
-            <NavAnchor>About</NavAnchor>
-        </Link>
-        <Link href="/customOrder">
-            <NavAnchor>Custom Order</NavAnchor>
-        </Link>
-        <Link href="/necklaces">
-            <NavAnchor>Necklaces</NavAnchor>
+        )
+        
+export default Nav;
+        /* <Link href="/necklaces">
+        <NavAnchor>Necklaces</NavAnchor>
         </Link>
         <Link href="/rings">
-            <NavAnchor>Rings</NavAnchor>
+        <NavAnchor>Rings</NavAnchor>
         </Link>
         <Link href="/cuffs">
-            <NavAnchor>Cuffs</NavAnchor>
-        </Link>
-    </NavStyles>
-)
-
-export default Nav;
+        <NavAnchor>Cuffs</NavAnchor>
+    </Link> */
