@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import styled from 'styled-components';
 import NavStyles from './styles/NavStyles';
+import User from './User';
 
 
 const StyledNav = styled.ul`
@@ -22,6 +23,12 @@ const NavAnchor = styled.a`
 
 const Nav = () => (
     <NavStyles>
+        <User>
+            {({ data: { me }}) => {
+                if(me) return <p>{me.name}</p>
+                return null;
+            }}
+        </User>
         <Link href="/upload">
             <NavAnchor>Upload</NavAnchor>
         </Link>
