@@ -1,8 +1,12 @@
-import UpdateItem from '../components/UpdateItem';
+import CreateItem from '../components/CreateItem';
+import PleaseSignIn from '../components/PleaseSignIn';
+
 
 const Upload = props => (
     <div>
-        <UpdateItem />
+        <PleaseSignIn>
+            <CreateItem />
+        </PleaseSignIn>
     </div>
 );
 
