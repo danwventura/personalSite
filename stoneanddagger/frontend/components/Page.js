@@ -28,7 +28,7 @@ const Inner = styled.div`
 injectGlobal`
     @font-face {
         font-family: 'fundamental_rush';
-        src: url('/static/fundamental.ttf');
+        src: url('/static/fundamental.ttf')
         format('truetype');
         font-weight: normal;
         font-style: normal;
