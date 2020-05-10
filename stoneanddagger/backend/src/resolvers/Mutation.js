@@ -234,7 +234,7 @@ const Mutations = {
         }
         return ctx.db.mutation.deleteCartItem({
             where: { id: args.id}
-        }, info 
+        }, info
         )
         //make sure they own that cart item
         //delete that cart item
