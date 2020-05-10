@@ -219,6 +219,26 @@ const Mutations = {
         }, info
         );
     },
+    async removeFromCart(parent, args, ctx, info) {
+        // find the cart item
+        const cartItem = await ctx.db.query.cartItem({
+            where: {
+                id: args.id,
+
+            }
+        }, `{id, user { id }}`
+        );
+        if(!cartItem) throw new Error('No cart item found');
+        if(cartItem.user.id !== ctx.request.userId) {
+            throw new Error("Not Allowed");
+        }
+        return ctx.db.mutation.deleteCartItem({
+            where: { id: args.id}
+        }, info 
+        )
+        //make sure they own that cart item
+        //delete that cart item
+    }
 };
 
 module.exports = Mutations;
