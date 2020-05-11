@@ -22,19 +22,19 @@ class Item extends Component {
                     pathname: '/item',
                     query: {id: item.id}
                 }}>
-                    <a>{item.title}</a> 
+                    <a>{item.title.toUpperCase()}</a> 
                 </Link>
             </Title>
             <PriceTag>{formatMoney(item.price)}</PriceTag>
-            <p>{item.description}</p>
+            {/* <p>{item.description}</p> */}
             <div className="buttonList">
-                <Link href={{
+                {/* <Link href={{
                     pathname: "update",
                     query: { id: item.id  }
                 }}><a>Edit</a>
-                </Link>
+                </Link> */}
                 <AddToCart id={item.id}></AddToCart>
-                <DeleteItem id={item.id}>Delete This Item</DeleteItem>
+                {/* <DeleteItem id={item.id}>Delete This Item</DeleteItem> */}
             </div>
         </ItemStyles>
         return <div />;

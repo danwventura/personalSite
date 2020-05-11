@@ -8,9 +8,9 @@ const AboutDiv = styled.div`
 
 const About = props => (
     <AboutDiv>
-        <div class="col-md-4 offset-md-1 mb-3 col-lg-3 offset-lg-2">
+        {/* <div class="col-md-4 offset-md-1 mb-3 col-lg-3 offset-lg-2">
                 <img src="kristen.jpg" alt="Image" class="img-fluid"/>
-        </div>
+        </div> */}
         <div class="col-md-6 mb-3 mt-3 col-lg-6 ml-5">
             <h2>Stone & Dagger</h2>
             <u>Kristen Olsen - Owner</u>

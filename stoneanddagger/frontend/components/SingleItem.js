@@ -7,21 +7,26 @@ import Head from 'next/head';
 
 
 const SingleItemStyles = styled.div`
+    text-align: center;
     max-width: 1200px;
     margin: 2rem auto;
     box-shadow: ${props => props.theme.bs};
-    display: grid;
+    /* display: grid; */
     grid-auto-columns: 1fr;
     grid-auto-flow: column;
-    min-height: 800px;
+    min-height: 700px;
     img{
-        width: 100%;
-        height: 100%;
+        align-content: center;
+        width: 50%;
+        height: 50%;
         object-fit: contain;
     }
     details{
-        margin: 3rem;
+        /* margin: 2rem; */
         font-size: 2rem;
+    }
+    h2{
+        padding-top: 2rem;
     }
 `;
 
@@ -51,13 +56,12 @@ class SingleItem extends Component {
                 return (
                 <SingleItemStyles>
                     <Head>
-                <title>Stone and Dagger | {item.title}</title>
+                        <title>Stone and Dagger | {item.title}</title>
                     </Head>
-                    <img src={item.image} alt={item.title}/>
+                    <h2><u>{item.title}</u></h2>
+                    <img src={item.largeImage} alt={item.title}/>
                     <div className="details">
-                        <h2>Viewing {item.title}</h2>
                         <p>{item.description}</p>
-
                     </div>
                 </SingleItemStyles>
                 )
