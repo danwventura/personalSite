@@ -4,12 +4,20 @@ const NavStyles = styled.ul`
   margin: 0;
   padding: 0;
   display: flex;
-  justify-self: end;
+  justify-self: center;
   font-size: 2rem;
+  @font-face {
+        font-family: 'SourceSansProRegular';
+        src: url('/static/SourceSansPro-Regular.ttf')
+        format('truetype');
+        font-weight: normal;
+        font-style: normal;
+    }
   a,
   button {
     padding: 1rem 3rem;
     display: flex;
+    font-family: 'SourceSansProRegular';
     align-items: center;
     position: relative;
     text-transform: uppercase;
@@ -27,7 +35,7 @@ const NavStyles = styled.ul`
     &:before {
       content: '';
       width: 2px;
-      background: slategray;
+      background: #A93B38;
       height: 100%;
       left: 0;
       position: absolute;
@@ -37,7 +45,7 @@ const NavStyles = styled.ul`
     }
     &:after {
       height: 2px;
-      background: red;
+      background: #A93B38;
       content: '';
       width: 0;
       position: absolute;

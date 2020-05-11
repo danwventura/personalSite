@@ -19,18 +19,18 @@ const Nav = () => (
                 </Link>
                 {me && (
                     <>
-                        <Link href="/upload">
+                        {/* <Link href="/upload">
                             <a>Upload</a>
-                        </Link>
+                        </Link> */}
                         <Link href="/customOrder">
                             <a>Custom Order</a>
                         </Link>
-                        <Link href="/orders">
+                        {/* <Link href="/orders">
                             <a>Orders</a>
-                        </Link>
-                        <Link href="/me">
+                        </Link> */}
+                        {/* <Link href="/me">
                             <a>Account</a>
-                        </Link>
+                        </Link> */}
                         <Signout />
                         <Mutation mutation={ TOGGLE_CART_MUTATION }>
                             {(toggleCart) => (

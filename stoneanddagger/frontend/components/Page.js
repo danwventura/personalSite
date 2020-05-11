@@ -27,8 +27,8 @@ const Inner = styled.div`
 
 injectGlobal`
     @font-face {
-        font-family: 'fundamental_rush';
-        src: url('/static/fundamental.ttf')
+        font-family: 'SourceSansProRegular';
+        src: url('/static/SourceSansPro-Regular.ttf')
         format('truetype');
         font-weight: normal;
         font-style: normal;
@@ -45,7 +45,7 @@ injectGlobal`
         margin:0;
         font-size: 1.5rem;
         line-height: 2;
-        font-family: 'fundamental_rush';
+        font-family: 'SourceSansProRegular';
     }
     a{
         text-decoration:none;
