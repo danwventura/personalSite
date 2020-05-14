@@ -4,7 +4,9 @@ const NavStyles = styled.ul`
   margin: 0;
   padding: 0;
   display: flex;
-  justify-self: center;
+  justify-self: end;
+  text-align: center;
+  vertical-align:top;
   font-size: 2rem;
   @font-face {
         font-family: 'SourceSansProRegular';
@@ -26,7 +28,7 @@ const NavStyles = styled.ul`
     background: none;
     border: 0;
     cursor: pointer;
-    color: white;
+    color: black;
     font-weight: 800;
     @media (max-width: 700px) {
       font-size: 10px;
@@ -35,7 +37,7 @@ const NavStyles = styled.ul`
     &:before {
       content: '';
       width: 2px;
-      background: #A93B38;
+      background: white;
       height: 100%;
       left: 0;
       position: absolute;

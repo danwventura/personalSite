@@ -19,74 +19,58 @@ Router.onRouteChangeError = () => {
     NProgress.done();
 }
 
-const Logo = styled.h1`
-    font-size: 4rem;
-    margin-left: 2rem;
-    position: relative;
-    z-index: 2;
-    transform: skew(-7deg);
-    @font-face {
-        font-family: 'Minster';
-        src: url('/static/minster6.ttf')
-        format('truetype');
-        font-weight: normal;
-        font-style: normal;
-    }
-    a{
-        font-family: 'Minster';
-        padding: 0.5rem 1rem;
-        color: white;
-        text-transform: uppercase;
-        text-decoration: none;
-    }
-    @media(max-width: 1300px){
-        margin: 0;
-        text-align: center;
-    }
-`;
+// const Logo = styled.img`
+//     margin-left: 2rem;
+//     position: relative;
+//     z-index: 2;
+//     a{
+//         padding: 0.5rem 1rem;
+//         color: black;
+//         text-transform: uppercase;
+//         text-decoration: none;
+//     }
+//     img{
+//         height: 125px;
+//         padding-top: 3px;
+//     }
+//     @media(max-width: 1300px){
+//         margin: 0;
+//         text-align: center;  
+//     }
+// `;
 
 const StyledHeader = styled.header`
     .bar{
-        margin-top: -27px;
-        border-top: 1px  solid #A93B38;
-        border-bottom: 2px  solid #A93B38;
-        background-color: ${props => props.theme.black};
+        background-color: white;
         display: grid;
         grid-template-columns: auto 1fr;
         justify-content: space-between;
         grid-template-columns: 1fr;
-        
+        @media (max-width: 1300px) {
+            grid-template-columns: 1fr;
+            justify-content: center;
+        }
+        img{
+            height: 150px;
+            margin-top: 20px;
+            margin-left: 20px;
+        }
     }
     .sub-bar{
-        text-align: center;
         display: grid;
         grid-template-columns: 1fr auto;
         border-bottom: 1px solid ${props => props.theme.lightgrey};
     }
-    .logo{
-        text-align:center;
-        margin-top: -27px;
-        background-color: ${props => props.theme.black};
-        img{
-            padding-top: 30px;
-            height: 200px;
-        }
-    }
-    /* .headerImage{
-        background-image: url('/static/sndLogoWhiteRedGem.png');
-    } */
 `;
 
 const Header = () => (
     <StyledHeader>
-        <div className="logo">
-            <Logo>
-                <Link href="/">
-                    <img src="/static/sndLogoWhiteRedGem.png"/>
-                </Link>
-            </Logo>
-        </div>
         <div className="bar">
+            {/* <Logo>
+                <Link href="/"> */}
+                    <img src="/static/StoneAndDaggerLogo.png"/>
+                {/* </Link>
+            </Logo> */}
             <Nav />
         </div>
         <div className="sub-bar">
