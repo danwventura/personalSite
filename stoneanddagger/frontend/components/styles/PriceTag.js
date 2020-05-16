@@ -2,13 +2,13 @@ import styled from 'styled-components';
 
 const PriceTag = styled.span`
   @font-face {
-    font-family: 'SourceSansProLight';
-    src: url('/static/SourceSansPro-Light.ttf')
+    font-family: 'CenturyGothic';
+    src: url('/static/CenturyGothic.ttf')
     format('truetype');
     font-weight: normal;
     font-style: normal;
   }
-  font-family: 'SourceSansProLight';
+  font-family: 'CenturyGothic';
   color: #393939;
   font-weight: 600;
   padding: 5px;

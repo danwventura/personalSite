@@ -1,16 +1,17 @@
 import styled from 'styled-components';
 
 const NavStyles = styled.ul`
-  margin: 0;
+  /* margin: 0; */
+  margin-top: 52px;
   padding: 0;
-  display: flex;
   justify-self: end;
   text-align: center;
-  vertical-align:top;
+  float:right;
+  vertical-align:middle;
   font-size: 2rem;
   @font-face {
-        font-family: 'SourceSansProRegular';
-        src: url('/static/SourceSansPro-Regular.ttf')
+        font-family: 'CenturyGothic';
+        src: url('/static/CenturyGothic.ttf')
         format('truetype');
         font-weight: normal;
         font-style: normal;
@@ -18,8 +19,8 @@ const NavStyles = styled.ul`
   a,
   button {
     padding: 1rem 3rem;
-    display: flex;
-    font-family: 'SourceSansProRegular';
+    display: inline;
+    font-family: 'CenturyGothic';
     align-items: center;
     position: relative;
     text-transform: uppercase;
@@ -55,7 +56,7 @@ const NavStyles = styled.ul`
       transition: width 0.4s;
       transition-timing-function: cubic-bezier(1, -0.65, 0, 2.31);
       left: 50%;
-      margin-top: 2rem;
+      margin-top: 4rem;
     }
     &:hover,
     &:focus {
