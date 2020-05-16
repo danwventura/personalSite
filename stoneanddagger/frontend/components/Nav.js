@@ -7,6 +7,10 @@ import User from './User';
 import Signout from './Signout';
 import CartCount from './CartCount';
 
+const CartButton = styled.button`
+    display: inline-block;
+`;
+
 const Nav = () => (
     <User>
         {({ data: { me } }) => (
@@ -31,12 +35,12 @@ const Nav = () => (
                         {/* <Link href="/me">
                             <a>Account</a>
                         </Link> */}
-                        <Signout />
                         <Mutation mutation={ TOGGLE_CART_MUTATION }>
                             {(toggleCart) => (
-                                <button onClick={toggleCart}>My Cart<CartCount count={me.cart.reduce((tally, cartItem) => tally + cartItem.quantity, 0)}></CartCount></button>
+                                <CartButton onClick={toggleCart}>My Cart<CartCount count={me.cart.reduce((tally, cartItem) => tally + cartItem.quantity, 0)}></CartCount></CartButton>
                             )}
                         </Mutation>
+                        <Signout />
                     </>
                 )}
                 {!me && (

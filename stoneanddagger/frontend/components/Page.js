@@ -27,8 +27,8 @@ const Inner = styled.div`
 
 injectGlobal`
     @font-face {
-        font-family: 'SourceSansProRegular';
-        src: url('/static/SourceSansPro-Regular.ttf')
+        font-family: 'CenturyGothic';
+        src: url('/static/CenturyGothic.ttf')
         format('truetype');
         font-weight: normal;
         font-style: normal;
@@ -45,7 +45,7 @@ injectGlobal`
         margin:0;
         font-size: 1.5rem;
         line-height: 2;
-        font-family: 'SourceSansProRegular';
+        font-family: 'CenturyGothic';
     }
     a{
         text-decoration:none;

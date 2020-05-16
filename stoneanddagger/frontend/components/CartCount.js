@@ -5,8 +5,9 @@ import styled from 'styled-components';
 
 const AnimationStyles  = styled.span`
     position: relative;
+    display:inline-block;
     .count{
-        display: block;
+        display: inline-block;
         position: relative;
         transition: all 0.4s;
         backface-visibility: hidden;
@@ -30,6 +31,7 @@ const AnimationStyles  = styled.span`
 const Dot = styled.div`
     background: #A93B38;
     color: white;
+    display: inline-block;
     border-radius: 50%;
     padding: 0.5rem;
     line-height: 2rem;
