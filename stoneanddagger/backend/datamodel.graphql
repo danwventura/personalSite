@@ -22,6 +22,7 @@ type Item {
   id: ID! @id
   title: String!
   description: String!
+  #images: [String!]
   image: String!
   largeImage: String
   price: Int!
@@ -34,6 +35,7 @@ type CartItem {
   id: ID! @id
   quantity: Int! @default(value: 1)
   item: Item
+  #user: User
   user: User!
 }
 
@@ -53,5 +55,44 @@ type Order {
   items: [OrderItem!]!
   total: Int!
   user: User!
+  #user: User
   charge: String!
 }
+
+#type AnonUser {
+  #id: ID! @id
+  #email: String!
+  #name: String!
+  #cart: [CartItem!]!
+#}
+
+#type AnonItem {
+  #id: ID! @id
+  #title: String!
+  #description: String!
+  #image: String!
+  #largeImage: String
+  #price: Int!
+  #createdAt: DateTime! @createdAt
+  #updatedAt: DateTime! @updatedAt
+  #user: User!
+#}
+
+#type AnonOrder {
+  #id: ID! @id
+  #items: [OrderItem!]!
+  #total: Int!
+  #user: AnonUser!
+  #charge: String!
+#}
+
+#type AnonOrderItem {
+  #id: ID! @id
+  #title: String!
+  #description: String!
+  #image: String!
+  #price: Int!
+  #quantity: Int! @default(value: 1)
+  #anonUser: AnonUser
+#}
+
