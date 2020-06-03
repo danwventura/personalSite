@@ -29,11 +29,11 @@ function totalItems(cart) {
 }
 
 class TakePayments extends React.Component {
-    onToken = (res, createOrder) => {
+    onToken = async (res, createOrder) => {
         console.log('On Token');
         console.log(res.id);
         //manually call the mutation once we have the stripe token
-        createOrder({
+        const order = await createOrder({
             variables: {
                 token: res.id,
             },
@@ -51,7 +51,7 @@ class TakePayments extends React.Component {
                     amount={calcTotalPrice(me.cart)}
                     name="Stone & Dagger"
                     description={`Order of ${totalItems(me.cart)} Items`}
-                    image={me.cart[0].item && me.cart[0].item.image}
+                    image={me.cart.length && me.cart[0].item && me.cart[0].item.image}
                     stripeKey="pk_test_Sa39ds6fHrDwDZHe6tXVM2Zh00guorhS38"
                     currency="USD"
                     email={me.email}
