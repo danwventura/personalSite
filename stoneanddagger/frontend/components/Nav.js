@@ -29,9 +29,9 @@ const Nav = () => (
                         <Link href="/customOrder">
                             <a>Custom Order</a>
                         </Link>
-                        {/* <Link href="/orders">
+                        <Link href="/orders">
                             <a>Orders</a>
-                        </Link> */}
+                        </Link>
                         {/* <Link href="/me">
                             <a>Account</a>
                         </Link> */}
