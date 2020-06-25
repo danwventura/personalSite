@@ -30,8 +30,7 @@ function totalItems(cart) {
 
 class TakePayments extends React.Component {
     onToken = async (res, createOrder) => {
-        console.log('On Token');
-        console.log(res.id);
+        NProgress.start();
         //manually call the mutation once we have the stripe token
         const order = await createOrder({
             variables: {
@@ -40,6 +39,10 @@ class TakePayments extends React.Component {
         }).catch(err => {
             alert(err.message);
         });
+        Router.push({
+            pathname: '/order',
+            query: { id: order.data.createOrder.id },
+        })
     }
     render () {
         return (
