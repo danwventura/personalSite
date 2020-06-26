@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Header from '../components/Header';
 import Meta from '../components/Meta';
 import styled, { ThemeProvider, injectGlobal } from 'styled-components';
+import Footer from '../components/Footer';
 
 const theme = {
     red: '#FF0000',
@@ -57,13 +58,16 @@ injectGlobal`
 class Page extends Component {
     render() {
         return (
-            <ThemeProvider theme={theme}>
-                <StyledPage>
-                <Meta />
-                <Header />
-                <Inner>{this.props.children}</Inner>
-                </StyledPage>
-            </ThemeProvider>
+            <div>
+                <ThemeProvider theme={theme}>
+                    <StyledPage>
+                    <Meta />
+                    <Header />
+                    <Inner>{this.props.children}</Inner>
+                    </StyledPage>
+                </ThemeProvider>
+                <Footer />
+            </div>
         )
     }
 }
