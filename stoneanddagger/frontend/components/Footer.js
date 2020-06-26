@@ -43,8 +43,12 @@ const FooterBottomContainer = styled.div`
 const FooterBottomColumn = styled.div`
     width: 30%;
     text-align: center;
+    align-items: center;
     img {
         margin-right: 20px;
+    }
+    p {
+        display: inline;
     }
 `;
 
@@ -93,7 +97,7 @@ class Footer extends React.Component {
                 </FooterContentContainer>
                 <FooterBottomContainer>
                     <FooterBottomColumn>
-                        <p>	&#169; Stone & Dagger</p>
+                        <p>&#169; Stone & Dagger</p>
                     </FooterBottomColumn>
                     <FooterBottomColumn />
                     <SpacerColumn />
