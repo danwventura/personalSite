@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import Router from 'next/router';
 import Nav from './Nav';
 import Cart from './Cart';
-// import StoneAndDaggerLogo from '../static/sndLogoWhiteRedGem.png';
 
 
 Router.onRouteChangeStart = () => {
@@ -22,7 +21,6 @@ Router.onRouteChangeError = () => {
 const StyledHeader = styled.header`
     .bar{
         background-color: white;
-        /* display: grid; */
         grid-template-columns: auto 1fr;
         justify-content: center;
         grid-template-columns: 1fr;
