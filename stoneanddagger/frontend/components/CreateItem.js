@@ -11,6 +11,7 @@ const CREATE_ITEM_MUTATION = gql`
         $title: String!
         $description: String!
         $price: Int!
+        $quantity: Int!
         $image: String
         $largeImage: String
     ) {
@@ -18,6 +19,7 @@ const CREATE_ITEM_MUTATION = gql`
             title: $title
             description: $description
             price: $price
+            quantity: $quantity
             image: $image
             largeImage: $largeImage
         ) {
@@ -33,6 +35,7 @@ class CreateItem extends Component {
         image: '',
         largeImage: '',
         price: 0,
+        quantity: 0,
     };
     handleChange = (e) => {
         const { name, type, value } = e.target;
@@ -51,7 +54,6 @@ class CreateItem extends Component {
             body: data
         })
         const file = await res.json();
-        console.log('file', file);
         this.setState({
             image: file.secure_url,
             largeImage: file.eager[0].secure_url,
@@ -86,6 +88,10 @@ class CreateItem extends Component {
                         <label htmlFor="price">
                             Price
                             <input type="number" id="price" name="price" placeholder="Price" required value={this.state.price} onChange={this.handleChange}/>
+                        </label>
+                        <label htmlFor="quantity">
+                            Quantity
+                            <input type="number" id="quantity" name="quantity" placeholder="Quantity" required value={this.state.quantity} onChange={this.handleChange}/>
                         </label>
                         <label htmlFor="description">
                             Description
