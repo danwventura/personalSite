@@ -39,7 +39,6 @@ const Query = {
       info
     );
     //check if they have the permission to see this order
-    console.log('order:', order);
     const ownsOrder = order.user.id === ctx.request.userId;
     const hasPermissionToSeeOrder = ctx.request.user.permissions.includes('ADMIN');
     if(!ownsOrder || !hasPermission){
