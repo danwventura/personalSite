@@ -24,14 +24,28 @@ const CREATE_ORDER_MUTATION = gql`
     }
 `;
 
+const DECREMENT_ITEM_QUANTITY_MUTATION = gql`
+    mutation decrementItemQuantity ( $id: ID!, $quantity: Int!){
+        decrementItemQuantity(
+            id: $id
+            quantity: $quantity
+        )
+        {
+            id
+            quantity
+        }
+    }
+`;
+
 function totalItems(cart) {
     return cart.reduce((tally, cartItem) => tally + cartItem.quantity, 0);
 }
 
 class TakePayments extends React.Component {
-    onToken = async (res, createOrder) => {
+    onToken = async (res, createOrder, decrementItemQuantity, me) => {
         NProgress.start();
         //manually call the mutation once we have the stripe token
+        const items = me.cart;
         const order = await createOrder({
             variables: {
                 token: res.id,
@@ -39,6 +53,15 @@ class TakePayments extends React.Component {
         }).catch(err => {
             alert(err.message);
         });
+        for(let i = 0; i < items.length; i += 1) {
+            let cartItem = items[i];
+            const updatedItem = await decrementItemQuantity({
+                variables: {
+                    id: cartItem.item.id,
+                    quantity: 0,
+                }
+            })
+        }
         Router.push({
             pathname: '/order',
             query: { id: order.data.createOrder.id },
@@ -50,18 +73,22 @@ class TakePayments extends React.Component {
                 {({ data: { me }}) => (
                     <Mutation mutation={CREATE_ORDER_MUTATION} refetchQueries={[{query: CURRENT_USER_QUERY}]}>
                         {(createOrder) => (
-                    <StripeCheckout
-                    amount={calcTotalPrice(me.cart)}
-                    name="Stone & Dagger"
-                    description={`Order of ${totalItems(me.cart)} Items`}
-                    image={me.cart.length && me.cart[0].item && me.cart[0].item.image}
-                    stripeKey="pk_test_Sa39ds6fHrDwDZHe6tXVM2Zh00guorhS38"
-                    currency="USD"
-                    email={me.email}
-                    // shippingAddress={true}
-                    token={res => this.onToken(res, createOrder)}
-                    >{ this.props.children }</StripeCheckout>
-                    )}
+                        <Mutation mutation={DECREMENT_ITEM_QUANTITY_MUTATION}>
+                            {(decrementItemQuantity) => (
+                                <StripeCheckout
+                                amount={calcTotalPrice(me.cart)}
+                                name="Stone & Dagger"
+                                description={`Order of ${totalItems(me.cart)} Items`}
+                                image={me.cart.length && me.cart[0].item && me.cart[0].item.image}
+                                stripeKey="pk_test_Sa39ds6fHrDwDZHe6tXVM2Zh00guorhS38"
+                                currency="USD"
+                                email={me.email}
+                                // shippingAddress={true}
+                                token={res => this.onToken(res, createOrder, decrementItemQuantity, me)}
+                                >{ this.props.children }</StripeCheckout>
+                                )}
+                        </Mutation>
+                        )}
                 </Mutation>
                 )}
             </User>

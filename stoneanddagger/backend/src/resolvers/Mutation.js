@@ -43,7 +43,6 @@ const Mutations = {
         // find item
         const item = await ctx.db.query.item({ where }, `{id title user { id }}`)
         // check if they own that item
-        //TO DO
         const ownsItem = item.user.id === ctx.request.userId;
         const hasPermissions = ctx.request.user.permissions.some(permission => ['ADMIN', 'ITEMDELETE'].includes(permission));
         if(!ownsItem || !hasPermissions) {
@@ -51,6 +50,24 @@ const Mutations = {
         }
         // delete
         return ctx.db.mutation.deleteItem({ where }, info)
+    },
+    async decrementItemQuantity(parent, args, ctx, info) {
+        const decrements = { ...args};
+        const itemId = decrements.id;
+        console.log('dec', decrements);
+        delete decrements.id;
+        // get item id from args
+        const where = {id: args.id};
+        // find item
+        const item = await ctx.db.query.item({ where });
+        debugger;
+        return ctx.db.mutation.updateItem({
+            data: decrements,
+            where: {
+                id: itemId
+            }
+        }, info
+        );
     },
     async signup(parent, args, ctx, info) {
         args.email = args.email.toLowerCase();

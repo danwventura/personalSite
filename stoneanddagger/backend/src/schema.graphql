@@ -4,9 +4,10 @@ type SuccessMessage {
 }
 
 type Mutation {
-    createItem(title: String, description: String, price: Int, image:String, largeImage:String): Item!
+    createItem(title: String, description: String, price: Int, quantity: Int, image:String, largeImage:String): Item!
     updateItem(id: ID!, title:String, description: String, price: Int): Item!
     deleteItem(id: ID!):Item
+    decrementItemQuantity(id: ID!, quantity: Int!): Item
     signup(email: String!, password: String!, name: String!): User!
     signin(email: String!, password: String!) : User!
     signout: SuccessMessage

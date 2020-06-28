@@ -1,5 +1,5 @@
 # source: https://us1.prisma.sh/dan-ventura-1d64f3/stoneanddagger/dev
-# timestamp: Wed Jun 24 2020 14:24:16 GMT-0500 (Central Daylight Time)
+# timestamp: Sat Jun 27 2020 18:29:07 GMT-0500 (Central Daylight Time)
 
 type AggregateCartItem {
   count: Int!
@@ -329,6 +329,7 @@ type Item implements Node {
   image: String!
   largeImage: String
   price: Int!
+  quantity: Int!
   createdAt: DateTime!
   updatedAt: DateTime!
   user: User!
@@ -351,6 +352,7 @@ input ItemCreateInput {
   image: String!
   largeImage: String
   price: Int!
+  quantity: Int!
   user: UserCreateOneInput!
 }
 
@@ -381,6 +383,8 @@ enum ItemOrderByInput {
   largeImage_DESC
   price_ASC
   price_DESC
+  quantity_ASC
+  quantity_DESC
   createdAt_ASC
   createdAt_DESC
   updatedAt_ASC
@@ -394,6 +398,7 @@ type ItemPreviousValues {
   image: String!
   largeImage: String
   price: Int!
+  quantity: Int!
   createdAt: DateTime!
   updatedAt: DateTime!
 }
@@ -443,6 +448,7 @@ input ItemUpdateDataInput {
   image: String
   largeImage: String
   price: Int
+  quantity: Int
   user: UserUpdateOneRequiredInput
 }
 
@@ -452,6 +458,7 @@ input ItemUpdateInput {
   image: String
   largeImage: String
   price: Int
+  quantity: Int
   user: UserUpdateOneRequiredInput
 }
 
@@ -461,6 +468,7 @@ input ItemUpdateManyMutationInput {
   image: String
   largeImage: String
   price: Int
+  quantity: Int
 }
 
 input ItemUpdateOneInput {
@@ -708,6 +716,28 @@ input ItemWhereInput {
 
   """All values greater than or equal the given value."""
   price_gte: Int
+  quantity: Int
+
+  """All values that are not equal to given value."""
+  quantity_not: Int
+
+  """All values that are contained in given list."""
+  quantity_in: [Int!]
+
+  """All values that are not contained in given list."""
+  quantity_not_in: [Int!]
+
+  """All values less than the given value."""
+  quantity_lt: Int
+
+  """All values less than or equal the given value."""
+  quantity_lte: Int
+
+  """All values greater than the given value."""
+  quantity_gt: Int
+
+  """All values greater than or equal the given value."""
+  quantity_gte: Int
   createdAt: DateTime
 
   """All values that are not equal to given value."""
