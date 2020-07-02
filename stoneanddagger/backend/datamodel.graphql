@@ -25,6 +25,9 @@ type Item {
   #images: [String!]
   image: String!
   largeImage: String
+  image2: String
+  image3: String
+  image4: String
   price: Int!
   quantity: Int!
   createdAt: DateTime! @createdAt
@@ -46,6 +49,9 @@ type OrderItem {
   description: String!
   image: String!
   largeImage: String!
+  image2: String
+  image3: String
+  image4: String
   price: Int!
   quantity: Int! @default(value: 1)
   user: User

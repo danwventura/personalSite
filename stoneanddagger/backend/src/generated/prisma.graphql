@@ -1,5 +1,5 @@
 # source: https://us1.prisma.sh/dan-ventura-1d64f3/stoneanddagger/dev
-# timestamp: Sat Jun 27 2020 18:29:07 GMT-0500 (Central Daylight Time)
+# timestamp: Thu Jul 02 2020 17:31:02 GMT-0500 (Central Daylight Time)
 
 type AggregateCartItem {
   count: Int!
@@ -328,6 +328,9 @@ type Item implements Node {
   description: String!
   image: String!
   largeImage: String
+  image2: String
+  image3: String
+  image4: String
   price: Int!
   quantity: Int!
   createdAt: DateTime!
@@ -351,6 +354,9 @@ input ItemCreateInput {
   description: String!
   image: String!
   largeImage: String
+  image2: String
+  image3: String
+  image4: String
   price: Int!
   quantity: Int!
   user: UserCreateOneInput!
@@ -381,6 +387,12 @@ enum ItemOrderByInput {
   image_DESC
   largeImage_ASC
   largeImage_DESC
+  image2_ASC
+  image2_DESC
+  image3_ASC
+  image3_DESC
+  image4_ASC
+  image4_DESC
   price_ASC
   price_DESC
   quantity_ASC
@@ -397,6 +409,9 @@ type ItemPreviousValues {
   description: String!
   image: String!
   largeImage: String
+  image2: String
+  image3: String
+  image4: String
   price: Int!
   quantity: Int!
   createdAt: DateTime!
@@ -447,6 +462,9 @@ input ItemUpdateDataInput {
   description: String
   image: String
   largeImage: String
+  image2: String
+  image3: String
+  image4: String
   price: Int
   quantity: Int
   user: UserUpdateOneRequiredInput
@@ -457,6 +475,9 @@ input ItemUpdateInput {
   description: String
   image: String
   largeImage: String
+  image2: String
+  image3: String
+  image4: String
   price: Int
   quantity: Int
   user: UserUpdateOneRequiredInput
@@ -467,6 +488,9 @@ input ItemUpdateManyMutationInput {
   description: String
   image: String
   largeImage: String
+  image2: String
+  image3: String
+  image4: String
   price: Int
   quantity: Int
 }
@@ -694,6 +718,126 @@ input ItemWhereInput {
 
   """All values not ending with the given string."""
   largeImage_not_ends_with: String
+  image2: String
+
+  """All values that are not equal to given value."""
+  image2_not: String
+
+  """All values that are contained in given list."""
+  image2_in: [String!]
+
+  """All values that are not contained in given list."""
+  image2_not_in: [String!]
+
+  """All values less than the given value."""
+  image2_lt: String
+
+  """All values less than or equal the given value."""
+  image2_lte: String
+
+  """All values greater than the given value."""
+  image2_gt: String
+
+  """All values greater than or equal the given value."""
+  image2_gte: String
+
+  """All values containing the given string."""
+  image2_contains: String
+
+  """All values not containing the given string."""
+  image2_not_contains: String
+
+  """All values starting with the given string."""
+  image2_starts_with: String
+
+  """All values not starting with the given string."""
+  image2_not_starts_with: String
+
+  """All values ending with the given string."""
+  image2_ends_with: String
+
+  """All values not ending with the given string."""
+  image2_not_ends_with: String
+  image3: String
+
+  """All values that are not equal to given value."""
+  image3_not: String
+
+  """All values that are contained in given list."""
+  image3_in: [String!]
+
+  """All values that are not contained in given list."""
+  image3_not_in: [String!]
+
+  """All values less than the given value."""
+  image3_lt: String
+
+  """All values less than or equal the given value."""
+  image3_lte: String
+
+  """All values greater than the given value."""
+  image3_gt: String
+
+  """All values greater than or equal the given value."""
+  image3_gte: String
+
+  """All values containing the given string."""
+  image3_contains: String
+
+  """All values not containing the given string."""
+  image3_not_contains: String
+
+  """All values starting with the given string."""
+  image3_starts_with: String
+
+  """All values not starting with the given string."""
+  image3_not_starts_with: String
+
+  """All values ending with the given string."""
+  image3_ends_with: String
+
+  """All values not ending with the given string."""
+  image3_not_ends_with: String
+  image4: String
+
+  """All values that are not equal to given value."""
+  image4_not: String
+
+  """All values that are contained in given list."""
+  image4_in: [String!]
+
+  """All values that are not contained in given list."""
+  image4_not_in: [String!]
+
+  """All values less than the given value."""
+  image4_lt: String
+
+  """All values less than or equal the given value."""
+  image4_lte: String
+
+  """All values greater than the given value."""
+  image4_gt: String
+
+  """All values greater than or equal the given value."""
+  image4_gte: String
+
+  """All values containing the given string."""
+  image4_contains: String
+
+  """All values not containing the given string."""
+  image4_not_contains: String
+
+  """All values starting with the given string."""
+  image4_starts_with: String
+
+  """All values not starting with the given string."""
+  image4_not_starts_with: String
+
+  """All values ending with the given string."""
+  image4_ends_with: String
+
+  """All values not ending with the given string."""
+  image4_not_ends_with: String
   price: Int
 
   """All values that are not equal to given value."""
@@ -883,6 +1027,9 @@ type OrderItem implements Node {
   description: String!
   image: String!
   largeImage: String!
+  image2: String
+  image3: String
+  image4: String
   price: Int!
   quantity: Int!
   user: User
@@ -904,6 +1051,9 @@ input OrderItemCreateInput {
   description: String!
   image: String!
   largeImage: String!
+  image2: String
+  image3: String
+  image4: String
   price: Int!
   quantity: Int
   user: UserCreateOneInput
@@ -934,6 +1084,12 @@ enum OrderItemOrderByInput {
   image_DESC
   largeImage_ASC
   largeImage_DESC
+  image2_ASC
+  image2_DESC
+  image3_ASC
+  image3_DESC
+  image4_ASC
+  image4_DESC
   price_ASC
   price_DESC
   quantity_ASC
@@ -946,6 +1102,9 @@ type OrderItemPreviousValues {
   description: String!
   image: String!
   largeImage: String!
+  image2: String
+  image3: String
+  image4: String
   price: Int!
   quantity: Int!
 }
@@ -1159,6 +1318,126 @@ input OrderItemScalarWhereInput {
 
   """All values not ending with the given string."""
   largeImage_not_ends_with: String
+  image2: String
+
+  """All values that are not equal to given value."""
+  image2_not: String
+
+  """All values that are contained in given list."""
+  image2_in: [String!]
+
+  """All values that are not contained in given list."""
+  image2_not_in: [String!]
+
+  """All values less than the given value."""
+  image2_lt: String
+
+  """All values less than or equal the given value."""
+  image2_lte: String
+
+  """All values greater than the given value."""
+  image2_gt: String
+
+  """All values greater than or equal the given value."""
+  image2_gte: String
+
+  """All values containing the given string."""
+  image2_contains: String
+
+  """All values not containing the given string."""
+  image2_not_contains: String
+
+  """All values starting with the given string."""
+  image2_starts_with: String
+
+  """All values not starting with the given string."""
+  image2_not_starts_with: String
+
+  """All values ending with the given string."""
+  image2_ends_with: String
+
+  """All values not ending with the given string."""
+  image2_not_ends_with: String
+  image3: String
+
+  """All values that are not equal to given value."""
+  image3_not: String
+
+  """All values that are contained in given list."""
+  image3_in: [String!]
+
+  """All values that are not contained in given list."""
+  image3_not_in: [String!]
+
+  """All values less than the given value."""
+  image3_lt: String
+
+  """All values less than or equal the given value."""
+  image3_lte: String
+
+  """All values greater than the given value."""
+  image3_gt: String
+
+  """All values greater than or equal the given value."""
+  image3_gte: String
+
+  """All values containing the given string."""
+  image3_contains: String
+
+  """All values not containing the given string."""
+  image3_not_contains: String
+
+  """All values starting with the given string."""
+  image3_starts_with: String
+
+  """All values not starting with the given string."""
+  image3_not_starts_with: String
+
+  """All values ending with the given string."""
+  image3_ends_with: String
+
+  """All values not ending with the given string."""
+  image3_not_ends_with: String
+  image4: String
+
+  """All values that are not equal to given value."""
+  image4_not: String
+
+  """All values that are contained in given list."""
+  image4_in: [String!]
+
+  """All values that are not contained in given list."""
+  image4_not_in: [String!]
+
+  """All values less than the given value."""
+  image4_lt: String
+
+  """All values less than or equal the given value."""
+  image4_lte: String
+
+  """All values greater than the given value."""
+  image4_gt: String
+
+  """All values greater than or equal the given value."""
+  image4_gte: String
+
+  """All values containing the given string."""
+  image4_contains: String
+
+  """All values not containing the given string."""
+  image4_not_contains: String
+
+  """All values starting with the given string."""
+  image4_starts_with: String
+
+  """All values not starting with the given string."""
+  image4_not_starts_with: String
+
+  """All values ending with the given string."""
+  image4_ends_with: String
+
+  """All values not ending with the given string."""
+  image4_not_ends_with: String
   price: Int
 
   """All values that are not equal to given value."""
@@ -1249,6 +1528,9 @@ input OrderItemUpdateDataInput {
   description: String
   image: String
   largeImage: String
+  image2: String
+  image3: String
+  image4: String
   price: Int
   quantity: Int
   user: UserUpdateOneInput
@@ -1259,6 +1541,9 @@ input OrderItemUpdateInput {
   description: String
   image: String
   largeImage: String
+  image2: String
+  image3: String
+  image4: String
   price: Int
   quantity: Int
   user: UserUpdateOneInput
@@ -1269,6 +1554,9 @@ input OrderItemUpdateManyDataInput {
   description: String
   image: String
   largeImage: String
+  image2: String
+  image3: String
+  image4: String
   price: Int
   quantity: Int
 }
@@ -1290,6 +1578,9 @@ input OrderItemUpdateManyMutationInput {
   description: String
   image: String
   largeImage: String
+  image2: String
+  image3: String
+  image4: String
   price: Int
   quantity: Int
 }
@@ -1519,6 +1810,126 @@ input OrderItemWhereInput {
 
   """All values not ending with the given string."""
   largeImage_not_ends_with: String
+  image2: String
+
+  """All values that are not equal to given value."""
+  image2_not: String
+
+  """All values that are contained in given list."""
+  image2_in: [String!]
+
+  """All values that are not contained in given list."""
+  image2_not_in: [String!]
+
+  """All values less than the given value."""
+  image2_lt: String
+
+  """All values less than or equal the given value."""
+  image2_lte: String
+
+  """All values greater than the given value."""
+  image2_gt: String
+
+  """All values greater than or equal the given value."""
+  image2_gte: String
+
+  """All values containing the given string."""
+  image2_contains: String
+
+  """All values not containing the given string."""
+  image2_not_contains: String
+
+  """All values starting with the given string."""
+  image2_starts_with: String
+
+  """All values not starting with the given string."""
+  image2_not_starts_with: String
+
+  """All values ending with the given string."""
+  image2_ends_with: String
+
+  """All values not ending with the given string."""
+  image2_not_ends_with: String
+  image3: String
+
+  """All values that are not equal to given value."""
+  image3_not: String
+
+  """All values that are contained in given list."""
+  image3_in: [String!]
+
+  """All values that are not contained in given list."""
+  image3_not_in: [String!]
+
+  """All values less than the given value."""
+  image3_lt: String
+
+  """All values less than or equal the given value."""
+  image3_lte: String
+
+  """All values greater than the given value."""
+  image3_gt: String
+
+  """All values greater than or equal the given value."""
+  image3_gte: String
+
+  """All values containing the given string."""
+  image3_contains: String
+
+  """All values not containing the given string."""
+  image3_not_contains: String
+
+  """All values starting with the given string."""
+  image3_starts_with: String
+
+  """All values not starting with the given string."""
+  image3_not_starts_with: String
+
+  """All values ending with the given string."""
+  image3_ends_with: String
+
+  """All values not ending with the given string."""
+  image3_not_ends_with: String
+  image4: String
+
+  """All values that are not equal to given value."""
+  image4_not: String
+
+  """All values that are contained in given list."""
+  image4_in: [String!]
+
+  """All values that are not contained in given list."""
+  image4_not_in: [String!]
+
+  """All values less than the given value."""
+  image4_lt: String
+
+  """All values less than or equal the given value."""
+  image4_lte: String
+
+  """All values greater than the given value."""
+  image4_gt: String
+
+  """All values greater than or equal the given value."""
+  image4_gte: String
+
+  """All values containing the given string."""
+  image4_contains: String
+
+  """All values not containing the given string."""
+  image4_not_contains: String
+
+  """All values starting with the given string."""
+  image4_starts_with: String
+
+  """All values not starting with the given string."""
+  image4_not_starts_with: String
+
+  """All values ending with the given string."""
+  image4_ends_with: String
+
+  """All values not ending with the given string."""
+  image4_not_ends_with: String
   price: Int
 
   """All values that are not equal to given value."""
