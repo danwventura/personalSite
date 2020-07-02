@@ -4,26 +4,27 @@ import { Query } from 'react-apollo';
 import Error from './ErrorMessage';
 import styled from 'styled-components';
 import Head from 'next/head';
+import HorizontalCarousel from './HorizontalCarousel';
+import Card from './CarouselCard';
+import formatMoney from '../lib/formatMoney';
+
+
 
 
 const SingleItemStyles = styled.div`
     text-align: center;
     max-width: 1200px;
-    margin: 2rem auto;
+    /* margin: 4rem 3rem; */
     box-shadow: ${props => props.theme.bs};
-    /* display: grid; */
     grid-auto-columns: 1fr;
     grid-auto-flow: column;
     min-height: 700px;
-    img{
-        align-content: center;
-        width: 50%;
-        height: 50%;
-        object-fit: contain;
-    }
-    details{
-        /* margin: 2rem; */
-        font-size: 2rem;
+    .details{
+        display: inline-block;
+        font-size: 1.75rem;
+        max-width: 60%;
+        margin-bottom: 50px;
+        text-align: center;
     }
     h2{
         padding-top: 2rem;
@@ -37,6 +38,11 @@ const SINGLE_ITEM_QUERY = gql`
             title
             description
             largeImage
+            price
+            image
+            image2
+            image3
+            image4
         }
     }
 `;
@@ -58,10 +64,17 @@ class SingleItem extends Component {
                     <Head>
                         <title>Stone and Dagger | {item.title}</title>
                     </Head>
-                    <h2><u>{item.title}</u></h2>
-                    <img src={item.largeImage} alt={item.title}/>
+                    <h1>{item.title}</h1>
+                    {/* <img src={item.image} alt={item.title}/> */}
+                    <HorizontalCarousel>
+                        <Card card_number={item.image}/>
+                        <Card card_number={item.image2}/>
+                        <Card card_number={item.image3}/>
+                        <Card card_number={item.image4}/>
+                    </HorizontalCarousel>
                     <div className="details">
                         <p>{item.description}</p>
+                        <h5>{formatMoney(item.price)}.00</h5>
                     </div>
                 </SingleItemStyles>
                 )
